@@ -4,6 +4,8 @@
 int square(int);
 void check(int &value);
 void check(int &&value);
+template <typename T>
+void callCheck(T &&value);
 
 int main() {
 
@@ -37,6 +39,12 @@ int main() {
     const int &&value7 = square(5);   //OK
     check(square(5));
     check(value6++);
+    std::cout << "===========PERFECT FORWARDING======================"<<std::endl;
+    auto &&value8 = square(5);          //OK
+    auto &&value9 = value1;             //OK, rvalue ref will collapse since the auto resolved to an lvalue
+    callCheck(value9);
+    callCheck(square(5));
+
     return 0;
 }
 
@@ -51,4 +59,10 @@ void check(int &value)
 void check(int &&value)
 {
     std::cout<<" rvalue function called with: "<<value <<std::endl;
+}
+template <typename T>
+void callCheck(T &&value)
+{
+  //  check(value); This always calls lvalue due to reference collapsing
+    check(std::forward<T>(value)); //calls the right version
 }
