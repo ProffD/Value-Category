@@ -1,0 +1,3 @@
+D:/His Stuff/Projects/Clion/Value_Category/cmake-build-debug/CMakeFiles/Value_Category.dir
+D:/His Stuff/Projects/Clion/Value_Category/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/His Stuff/Projects/Clion/Value_Category/cmake-build-debug/CMakeFiles/rebuild_cache.dir
